@@ -12,8 +12,9 @@ class server():
     FRAME = None
     
    
-    def __init__(self):
-        pass
+    def __init__(self,host,port):
+        self.HOST = host
+        self.PORT = port
 
     def start(self):
         s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
