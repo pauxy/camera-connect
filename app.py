@@ -29,5 +29,5 @@ def video2():
 if __name__=="__main__":
     print(f"Ports listening to: {sys.argv[1]} {sys.argv[2]}")
     threading.Thread(target=lambda: app.run(host='0.0.0.0', port=5004, debug=True, use_reloader=False)).start()
-    threading.Thread(target=ser.start.start()
-    threading.Thread(target=ser2.start.start()
+    threading.Thread(target=ser.start).start()
+    threading.Thread(target=ser2.start).start()
