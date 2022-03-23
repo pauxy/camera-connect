@@ -27,6 +27,7 @@ def video2():
     return Response(generate_frames(ser2),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
-    print("hello")
+    print(f"Ports listening to: {sys.argv[1]} {sys.argv[2]}")
     threading.Thread(target=lambda: app.run(host='0.0.0.0', port=5004, debug=True, use_reloader=False)).start()
-    ser.start()
+    threading.Thread(target=ser.start.start()
+    threading.Thread(target=ser2.start.start()

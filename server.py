@@ -45,6 +45,7 @@ class server():
             #print(type(frame_data))
             #loaded_np = np.load(frame_data, allow_pickle=True)
             threading.Thread(target=self.frameSet,args=(frame_data,)).start()
+        return True
 
     def frameSet(self,frame_data):
         self.FRAME = pickle.loads(frame_data)
