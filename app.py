@@ -5,9 +5,10 @@ import cv2
 import sys
 
 app=Flask(__name__)
-ser =server.server(sys.argv[1],int(sys.argv[2]))
+ser =server.server("",int(sys.argv[1]))
+ser2 = server.server("",int(sys.argv[2]))
 
-def generate_frames():
+def generate_frames(ser):
     while True:
         # Capture frame-by-frame
         frame = ser.FRAME  # read the camera frame
@@ -17,9 +18,13 @@ def generate_frames():
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
-@app.route('/')
+@app.route('/v1')
 def video():
-    return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_frames(ser),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/v2')
+def video2():
+    return Response(generate_frames(ser2),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__=="__main__":
     print("hello")
