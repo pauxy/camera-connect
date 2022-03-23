@@ -2,9 +2,10 @@ import threading
 import server
 from flask import Flask,render_template,Response
 import cv2
+import sys
 
 app=Flask(__name__)
-ser =server.server("",8089)
+ser =server.server(sys.argv[1],int(sys.argv[2]))
 
 def generate_frames():
     while True:
